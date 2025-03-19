@@ -2,8 +2,12 @@ const express = require('express');
 
 const app = express();
 
+app.use(express.json());
+
+//라우팅 설정
 app.post('/riku',(req,res) => {
-    res.send('Hello World');
+    // 클라이언트에게 응답 내용
+    res.send(req.body);
 });
 
 app.listen(3000,()=>{
