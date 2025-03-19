@@ -5,9 +5,9 @@ const app = express();
 app.use(express.json());
 
 //라우팅 설정
-app.post('/riku',(req,res) => {
-    // 클라이언트에게 응답 내용
-    res.send(req.body);
+app.get('/riku/:sakuya',(req,res) => {
+    const person = req.params.person;
+    res.status(200).send(person);
 });
 
 app.listen(3000,()=>{
