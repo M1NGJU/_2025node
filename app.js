@@ -4,6 +4,10 @@ const app = express();
 
 app.use(express.json());
 
+ app.get('/kuri', (req,res) =>{
+    res.status(200).send('Get kuri');
+ });
+
 //라우팅 설정
 app.get('/riku/:sakuya',(req,res) => {
     const person = req.params.person;
