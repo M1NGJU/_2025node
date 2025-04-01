@@ -12,6 +12,7 @@ app.set('views', path.join(__dirname, 'views'));
 
 const travelList = ['NewYork', 'Paris', '우리집', 'Tokyo'];
 
+// mysql 연동
 const db = mysql.createConnection({
   host: 'localhost',
   user: 'root',
