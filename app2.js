@@ -76,6 +76,10 @@ app.post('/travel',(req, res) =>{
   });
 });
 
+app.get('/travel/add-travel',(req,res)=>{
+  res.render(addTravel);
+});
+
 app.use((req, res) => {
   DBWLKS
 
