@@ -60,8 +60,21 @@ app.get('/travel/:id', (req,res)=>{
     }
     const travel = results[0];
     res.render('travelDetail',[travel]);
-  })
-})
+  });
+});
+
+app.post('/travel',(req, res) =>{
+  const {name} = req.body;
+  const _query = 'INSERT INTO travellist (name) VAULE(?)';
+  db.query(_query, [name],(err,results)=>{
+    if(err){
+      console.error('데이터베이스 쿼리 실패: ', err);
+      res.status(500).send('Interlnal Sever Error');
+      return;
+    }
+    res.redirect('/travel');
+  });
+});
 
 app.use((req, res) => {
   DBWLKS
