@@ -80,6 +80,33 @@ app.get('/travel/add-travel',(req,res)=>{
   res.render(addTravel);
 });
 
+app.put('travel/:id', (req,res)=>{
+  const travelId = req.params.id;
+  const {name} = req.body;
+  const query = 'UPDATE travellist SET name=? WHERE id=?';
+  db.query(_query[name, travelId],(err,results)=>{
+    if(err){
+      console.error('DB 쿼리 실패: ',err);
+      res.status(500).send('DB 서버 에러');
+      return;
+    }
+    res.render('updateSuccess')
+  })
+})
+
+app.delete('travel/:id', (req,res)=>{
+  const travelId = req.params.id;
+  const query = 'DELECT FROM travellist WHERE id=?';
+  db.query(_query[name, travelId],(err,results)=>{
+    if(err){
+      console.error('DB 쿼리 실패: ',err);
+      res.status(500).send('DB 서버 에러');
+      return;
+    }
+    res.render('deleteSuccess');
+  })
+})
+
 app.use((req, res) => {
   DBWLKS
 

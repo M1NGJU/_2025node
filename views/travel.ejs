@@ -6,6 +6,18 @@
     <title>Document</title>
 </head>
 <body>
+    <ul>
+        <% travelList.forEach(travel=> {%>
+            <li>
+                <a href="/travel/<%=travel.id>%"><%= travel.name %></a>
+                <a href="/travel/<%=travel.id>%/edit">수정</a>
+                <from action="/travel/<%= travel.id %>?_method=DELETE" method="POST" style="display: inline;">
+                    <button type="submit">삭제</button>
+                </from>
+            </li>
+        <% })%> 
+    </ul>
+
     <a href="/travel/add-travel">여행지 추가</a>
 </body>
 </html>
